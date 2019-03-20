@@ -1,0 +1,79 @@
+<div class="jumbotron">
+    <h1>Lista, {{vm.name}}</h1>
+      
+<div id="listagem">
+    <button id='btn-exibir-formulario' type="button" class="btn btn-primary">
+        <i class="far fa-file-image"></i> Cadastrar</button>
+    <br>
+    <br>
+    <div id="armario-listagem" >
+        <div class="table-responsive">
+            <table class="table table-hover table-dark" >
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Armario</th>
+                        <th>Camisetas</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody ng-repeat='armario in vm.armarios'>
+                    <tr>
+                        <td><b>{{$index+1}}</b></td>                        
+                        <td>{{armario.nome}}</td>
+                        <td>{{armario.camisetas.length}}</td>                        
+                        <td>
+                            <button class="btn btn-success"><i class="far fa-edit"></i>Editar</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger"><i class="far fa-trash-alt"></i>Excluir</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div id="formulario">
+    <div class="row">
+        <div class="col-sm">
+            <form method="POST" id="armarioForm">
+
+                <div class="form-group" hidden>
+                    <label for="id">Código</label>
+                    <input type="number" class="form-control" id="id" name="id_armario"/>
+                </div>
+
+                <div class="form-group">
+                    <label for="nomeBoot">Nome Armario</label>
+                    <input type="text" class="form-control" id="nome" name="titulo" placeholder="Informe o Nome" maxlength="20"/>
+                </div>
+
+                <div class="form-group" >
+                    <label for="exampleFormControlFile1">Situação Armario</label>
+                    <input type="text" class="form-control" id="situacao" name="titulo" placeholder="Informe a situacao ex: A(ativo) ou I(inativo)" maxlength="1"/>
+                </div>
+
+                <div class="form-group" hidden>
+                  <label for="id">Código</label>
+                  <input type="number" class="form-control" id="id" name="id_armario"/>
+              </div>
+
+              <div class="form-group">
+                  <label for="nomeBoot">Nome Camiseta</label>
+                  <input type="text" class="form-control" id="nome_camiseta" name="titulo" placeholder="Informe o Nome" maxlength="20"/>
+              </div>
+
+                <div class="form-inline">
+                    <button id='cadastrar-boot' type="submit" class="btn btn-primary mr-sm-2"><i class="far fa-save"></i>Salvar</button>                    
+                    <button id='btn-cancelar-operacao' type="button" class="btn btn-danger"><i class="fas fa-ban"></i>Voltar</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+  
